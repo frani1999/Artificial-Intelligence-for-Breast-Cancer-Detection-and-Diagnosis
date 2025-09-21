@@ -1,43 +1,37 @@
-# TFG - Detección y Diagnóstico de Cáncer de Mama
+# Artificial Intelligence for Breast Cancer Detection and Diagnosis
 
-Este TFG tiene como objetivo el estudio de distintas técnicas de detección y diagnóstico de Cáncer de Mama mediante el uso de algoritmos de Inteligencia Artificial basados en **Machine Learning** y **Deep Learning**. Como fuente de datos se utilizan imágenes mamográficas etiquetadas, tratadas de diversas formas dependiendo de la técnica aplicada.
+This final thesis aims to study different techniques for detecting and diagnosing breast cancer using Artificial Intelligence algorithms based on **Machine Learning** and **Deep Learning**. Labeled mammography images are used as the data source, processed in various ways depending on the technique applied.
 
-Tras el estudio de estas técnicas se procede a realizar una comparación de los resultados para posteriormente elegir la mejor combinación de técnicas para integrar en un CADx o CADe.
+After studying these techniques, the results are compared in order to subsequently choose the best combination of techniques to integrate into a CADx or CADe system.
 
-# Organización del Repositorio
+# Repository Content
 
-En este repositorio se encuentran tres carpetas: **Carpeta de Datos**, **Carpeta de Código** y **Carpeta de Resultados**.
+This repository contains four folders: 
+* **Data** → contains several files in both csv and xls format, used to assign labels to images or to extract a certain subset of images. The images in the dataset can be downloaded here: https://www.kaggle.com/datasets/awsaf49/cbis-ddsm-breast-cancer-image-dataset
+* **Código** → The Python code developed for each test performed is collected. Within this, we find folders:
+  * **Detección** → contains the codes associated with the detection part of the project.
+  * **Diagnóstico** → contains the codes associated with the diagnostic part of the project.
+  * **Otros** → contains other codes that are relevant to the project. Inside that folder, there is a folder called **MIAS**. This folder contains the codes that were used at the beginning of the project to familiarise ourselves with Python functions, as well as obsolete codes that were used in techniques that were discarded for the project. All of these codes were tested with the **MIAS** database, which is smaller than the **CBIS-DDSM** database.
+* **Resultados** → contains the results obtained in each experiment, both in the detection and diagnosis parts. They are very varied. You will be able to see different files, from graphs to .txt files where you can view the execution logs for each test. Specifically for the diagnosis process, there is a results folder that YOLOv5 returns once the training phase is complete, and another after running the testing phase.
+* **Resources** → Contains the images for project documentation.
 
-En la **carpeta de datos**, se recogen varios archivos tanto en formato csv como xls, utilizados para asignar etiquetas a imágenes o para extraer cierto subconjunto de imágenes. Las imágenes del dataset se pueden descargar aquí: https://www.kaggle.com/datasets/awsaf49/cbis-ddsm-breast-cancer-image-dataset
+# Used Techniques
 
-En la **carpeta de resultados** se encuentran los resultados obtenidos en cada experimento tanto en la parte de detección como en la de diagnóstico. Son muy variados. Podrá ver diferentes archivos, desde gráficas hasta archivos .txt donde visualizar los logs de ejecución de cada prueba. En concreto para la parte de diagnóstico, hay una carpeta de resultados que nos devuelve YOLOv5 una vez terminada la fase de entrenamiento, y otra tras ejecutar la fase de prueba o testeo.
+The following **Deep Learning** techniques have been used:
 
-En la **carpeta de código** se recoge el código python desarrollado para cada prueba realizada. Dentro de esta, encontramos:
-
-- Una carpeta llamada *"Detección"*, que contiene los códigos asociados a la parte de detección del proyecto.
-
-- Una carpeta llamada *"Diagnóstico"*, que contiene los códigos asociados a la parte de diagnóstico del proyecto.
-
-- Una carpeta llamada *"Otros"*, que contiene otros códigos que poseen cierta relevancia en la realización del proyecto. Dentro de esa carpeta se encuentra una carpeta que se llama **MIAS**. Esta carpeta contiene los códigos que se utilizaron al principio del proyecto para familiarizarse con las funciones de python y también códigos obsoletos que se usaron en técnicas descartadas para el proyecto. Todos estos códigos se probaron con la base de datos **MIAS**, que es mas pequeña que la base de datos **CBIS-DDSM**.
-
-# Técnicas empleadas
-
-Se han empleado las siguientes técnicas de **Deep Learning**:
-
-- Se ha diseño de Red Neuronal Convolucional con la siguiente arquitectura:
+- Convolutional Neural Network design with the following architecture:
 
 ![Alt text](https://github.com/frani1999/TFG---Detecci-n-y-Diagn-stico-de-Cancer-ce-Mama/blob/main/Resources/Mi%20CNN.png)
 
-- Red VGG16, que posee la siguiente arquitectura:
+- VGG16 net, which has the following architecture:
 
 ![Alt text](https://github.com/frani1999/TFG---Detecci-n-y-Diagn-stico-de-Cancer-ce-Mama/blob/main/Resources/Red%20VGG16.png)
 
-- Reentrenamiento de **YOLOv5**: Se ha conseguido adaptar el algoritmo de detección de objetos en imágenes a detección de tumores en imágenes mamográficas. Para ello, se han etiquetado manualmente y en el formato de **YOLOv5** un subconjunto de mamografías extraido de CBIS-DDSM, para posteriormente realizar el entrenamiento.
-  - Enlace al repositorio de **YOLOv5**: https://github.com/ultralytics/yolov5
-  - Tutorial de reentrenamiento de **YOLOv5**: https://colab.research.google.com/github/roboflow-ai/yolov5-custom-training-tutorial/blob/main/yolov5-custom-training.ipynb#scrollTo=X7yAi9hd-T4B
+- **YOLOv5** Retraining: The object detection algorithm has been successfully adapted to detect tumours in mammography images. For that purpose, a subset of mammograms extracted from CBIS-DDSM were manually labelled in **YOLOv5** format for subsequent training.
+  - Link to **YOLOv5** repository: https://github.com/ultralytics/yolov5
+  - **YOLOv5** Retraining tutorial: https://colab.research.google.com/github/roboflow-ai/yolov5-custom-training-tutorial/blob/main/yolov5-custom-training.ipynb#scrollTo=X7yAi9hd-T4B
 
-Por otro lado se han utilizado las siguientes técnicas de **Machine Learning**:
-
+The following **Machine Learning** techniques have been used:
 - *K-Nearest Neighbors (KNN)*
 - *Logistic Regression*
 - *Support Vector Machine (SVM)*
@@ -45,30 +39,29 @@ Por otro lado se han utilizado las siguientes técnicas de **Machine Learning**:
 - *Decision Tree Classifier*
 - *Naive Bayes Classifier (GaussianNB)*
 
-# Resultados obtenidos
+# Results
 
-## Resultados Detección
+## Detection Results
 
-CNN diseñada:
+### CNN designed
 ![Alt text](https://github.com/frani1999/TFG---Detecci-n-y-Diagn-stico-de-Cancer-ce-Mama/blob/main/Resultados/Detecci%C3%B3n/My%20CNN%20and%20VGG16/Detection%20Result%20-%20My%20CNN.png)
 
-Resultado *Accuracy* en test: 0.84
+*Accuracy* result in test: 0.84
 
-Red VGG16:
+### VGG16 net
 ![Alt text](https://github.com/frani1999/TFG---Detecci-n-y-Diagn-stico-de-Cancer-ce-Mama/blob/main/Resultados/Detecci%C3%B3n/My%20CNN%20and%20VGG16/Detection%20Result%20-%20VGG16.png)
 
-Resultado *Accuracy* en test: 0.87
+*Accuracy* result in test: 0.87
 
-### Detección con **YOLOv5**
+### YOLOv5
 
-Matriz de confusión:
+#### Confusion Matrix
 ![Alt text](https://github.com/frani1999/TFG---Detecci-n-y-Diagn-stico-de-Cancer-ce-Mama/blob/main/Resultados/Detecci%C3%B3n/YOLOv5/Train/confusion_matrix.png)
 
-Métricas:
+#### Metrics
 ![Alt text](https://github.com/frani1999/TFG---Detecci-n-y-Diagn-stico-de-Cancer-ce-Mama/blob/main/Resultados/Detecci%C3%B3n/YOLOv5/Train/results.png)
 
-Algunos resultados de ejemplo:
-
+#### Some sample results
 ![Alt text](https://github.com/frani1999/TFG---Detecci-n-y-Diagn-stico-de-Cancer-ce-Mama/blob/main/Resultados/Detecci%C3%B3n/YOLOv5/Test/test1.jpg)
 ![Alt text](https://github.com/frani1999/TFG---Detecci-n-y-Diagn-stico-de-Cancer-ce-Mama/blob/main/Resultados/Detecci%C3%B3n/YOLOv5/Test/test11.jpg)
 ![Alt text](https://github.com/frani1999/TFG---Detecci-n-y-Diagn-stico-de-Cancer-ce-Mama/blob/main/Resultados/Detecci%C3%B3n/YOLOv5/Test/test19.jpg)
@@ -76,38 +69,38 @@ Algunos resultados de ejemplo:
 ![Alt text](https://github.com/frani1999/TFG---Detecci-n-y-Diagn-stico-de-Cancer-ce-Mama/blob/main/Resultados/Detecci%C3%B3n/YOLOv5/Test/test33.jpg)
 ![Alt text](https://github.com/frani1999/TFG---Detecci-n-y-Diagn-stico-de-Cancer-ce-Mama/blob/main/Resultados/Detecci%C3%B3n/YOLOv5/Test/test5.jpg)
 
-## Resultados Diagnóstico
+## Diagnosis Results
 
-Calcificaciones CNN diseñada:
+### Calcifications - CNN designed
 ![Alt text](https://github.com/frani1999/TFG---Detecci-n-y-Diagn-stico-de-Cancer-ce-Mama/blob/main/Resultados/Diagn%C3%B3stico/My%20CNN%20and%20VGG16/Calcificaciones/Calc%20Diagnosis%20My%20CNN.png)
 
-Resultado *Accuracy* en test: 0.6
+*Accuracy* result in test: 0.6
 
-Calcificaciones Red VGG16:
+### Calcifications - VGG16 net
 ![Alt text](https://github.com/frani1999/TFG---Detecci-n-y-Diagn-stico-de-Cancer-ce-Mama/blob/main/Resultados/Diagn%C3%B3stico/My%20CNN%20and%20VGG16/Calcificaciones/Calc%20Diagnosis%20VGG16.png)
 
-Resultado *Accuracy* en test: 0.57
+*Accuracy* result in test: 0.57
 
-Masas CNN diseñada:
+### Masses - CNN designed
 ![Alt text](https://github.com/frani1999/TFG---Detecci-n-y-Diagn-stico-de-Cancer-ce-Mama/blob/main/Resultados/Diagn%C3%B3stico/My%20CNN%20and%20VGG16/Masas/Diagnosis_My_CNN_masses.png)
 
-Resultado *Accuracy* en test: 0.54
+*Accuracy* result in test: 0.54
 
-Masas Red VGG16:
+### Masses VGG16 net
 ![Alt text](https://github.com/frani1999/TFG---Detecci-n-y-Diagn-stico-de-Cancer-ce-Mama/blob/main/Resultados/Diagn%C3%B3stico/My%20CNN%20and%20VGG16/Masas/Diagnosis_VGG16_masses.png)
 
-Resultado *Accuracy* en test: 0.62
+*Accuracy* result in test: 0.62
 
-## Resultados de Diagnóstico utilizando las técnicas de Machine Learning
+## Diagnosis results using Machine Learning Techniques
 
-Fórmula Sensibilidad:
+Sensitivity Formula:
 ![Alt text](https://github.com/frani1999/TFG---Detecci-n-y-Diagn-stico-de-Cancer-ce-Mama/blob/main/Resources/CodeCogsEqn%20(1).png)
 
-Fórmula Especificidad:
+Formula Specificity:
 ![Alt text](https://github.com/frani1999/TFG---Detecci-n-y-Diagn-stico-de-Cancer-ce-Mama/blob/main/Resources/CodeCogsEqn%20(2).png)
 
-Sensibilidad:
-| Técnica utilizada | feature extraction(%) | feature extraction bounded(%) |
+Sensitivity:
+| Technique used | feature extraction(%) | feature extraction bounded(%) |
 | ------------- | ------------- | ------------- |
 | KNN | 36.57 | 37.09 |
 | Logistic Regression | 54.24 | 53.56 |
@@ -116,8 +109,8 @@ Sensibilidad:
 | Decision Tree Classifier | 45.60 | 39.66 |
 | GaussianNB | 57.68 | 57.39 |
 
-Especificidad:
-| Técnica utilizada | feature extraction(%) | feature extraction bounded(%) |
+Specificity:
+| Technique used | feature extraction(%) | feature extraction bounded(%) |
 | ------------- | ------------- | ------------- |
 | KNN | 26.04 | 25.86 |
 | Logistic Regression | 33.96 | 26.83 |
@@ -126,10 +119,10 @@ Especificidad:
 | Decision Tree Classifier | 30.86 | 26.74 |
 | GaussianNB | 18.44 | 18.33 |
 
-Como en ambos casos se realiza una clasificación binaria, se puede coger lo contrario:
+In both cases a binary classification is performed, so the opposite value can be taken:
 
-Sensibilidad:
-| Técnica utilizada | feature extraction(%) | feature extraction bounded(%) |
+Sensitivity:
+| Technique used | feature extraction(%) | feature extraction bounded(%) |
 | ------------- | ------------- | ------------- |
 | KNN | 63.43 | 62.91 |
 | Logistic Regression | 45.76 | 46.44 |
@@ -138,8 +131,8 @@ Sensibilidad:
 | Decision Tree Classifier | 54.40 | 60.34 |
 | GaussianNB | 42.32 | 42.61 |
 
-Especificidad:
-| Técnica utilizada | feature extraction(%) | feature extraction bounded(%) |
+Specificity:
+| Technique used | feature extraction(%) | feature extraction bounded(%) |
 | ------------- | ------------- | ------------- |
 | KNN | 73.96 | 74.14 |
 | Logistic Regression | 66.04 | 73.17 |
