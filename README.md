@@ -8,11 +8,11 @@ After studying these techniques, the results are compared in order to subsequent
 
 This repository contains four folders: 
 * **Data** → contains several files in both csv and xls format, used to assign labels to images or to extract a certain subset of images. The images in the dataset can be downloaded here: https://www.kaggle.com/datasets/awsaf49/cbis-ddsm-breast-cancer-image-dataset
-* **Código** → The Python code developed for each test performed is collected. Within this, we find folders:
-  * **Detección** → contains the codes associated with the detection part of the project.
-  * **Diagnóstico** → contains the codes associated with the diagnostic part of the project.
-  * **Otros** → contains other codes that are relevant to the project. Inside that folder, there is a folder called **MIAS**. This folder contains the codes that were used at the beginning of the project to familiarise ourselves with Python functions, as well as obsolete codes that were used in techniques that were discarded for the project. All of these codes were tested with the **MIAS** database, which is smaller than the **CBIS-DDSM** database.
-* **Resultados** → contains the results obtained in each experiment, both in the detection and diagnosis parts. They are very varied. You will be able to see different files, from graphs to .txt files where you can view the execution logs for each test. Specifically for the diagnosis process, there is a results folder that YOLOv5 returns once the training phase is complete, and another after running the testing phase.
+* **Code** → The Python code developed for each test performed is collected. Within this, we find folders:
+  * **Detection** → contains the codes associated with the detection part of the project.
+  * **Diagnosis** → contains the codes associated with the diagnostic part of the project.
+  * **Others** → contains other codes that are relevant to the project. Inside that folder, there is a folder called **MIAS**. This folder contains the codes that were used at the beginning of the project to familiarise ourselves with Python functions, as well as obsolete codes that were used in techniques that were discarded for the project. All of these codes were tested with the **MIAS** database, which is smaller than the **CBIS-DDSM** database.
+* **Results** → contains the results obtained in each experiment, both in the detection and diagnosis parts. They are very varied. You will be able to see different files, from graphs to .txt files where you can view the execution logs for each test. Specifically for the diagnosis process, there is a results folder that YOLOv5 returns once the training phase is complete, and another after running the testing phase.
 * **Resources** → Contains the images for project documentation.
 
 # Used Techniques
@@ -21,11 +21,11 @@ The following **Deep Learning** techniques have been used:
 
 - Convolutional Neural Network design with the following architecture:
 
-![Alt text](https://github.com/frani1999/TFG---Detecci-n-y-Diagn-stico-de-Cancer-ce-Mama/blob/main/Resources/Mi%20CNN.png)
+![Alt text](Resources/My_CNN.png)
 
 - VGG16 net, which has the following architecture:
 
-![Alt text](https://github.com/frani1999/TFG---Detecci-n-y-Diagn-stico-de-Cancer-ce-Mama/blob/main/Resources/Red%20VGG16.png)
+![Alt text](Resources/Net_VGG16.png)
 
 - **YOLOv5** Retraining: The object detection algorithm has been successfully adapted to detect tumours in mammography images. For that purpose, a subset of mammograms extracted from CBIS-DDSM were manually labelled in **YOLOv5** format for subsequent training.
   - Link to **YOLOv5** repository: https://github.com/ultralytics/yolov5
@@ -44,60 +44,60 @@ The following **Machine Learning** techniques have been used:
 ## Detection Results
 
 ### CNN designed
-![Alt text](https://github.com/frani1999/TFG---Detecci-n-y-Diagn-stico-de-Cancer-ce-Mama/blob/main/Resultados/Detecci%C3%B3n/My%20CNN%20and%20VGG16/Detection%20Result%20-%20My%20CNN.png)
+![Alt text](Results/Detection/My_CNN_and_VGG16/Detection%20Result%20-%20My%20CNN.png)
 
 *Accuracy* result in test: 0.84
 
 ### VGG16 net
-![Alt text](https://github.com/frani1999/TFG---Detecci-n-y-Diagn-stico-de-Cancer-ce-Mama/blob/main/Resultados/Detecci%C3%B3n/My%20CNN%20and%20VGG16/Detection%20Result%20-%20VGG16.png)
+![Alt text](Results/Detection/My_CNN_and_VGG16/Detection%20Result%20-%20VGG16.png)
 
 *Accuracy* result in test: 0.87
 
 ### YOLOv5
 
 #### Confusion Matrix
-![Alt text](https://github.com/frani1999/TFG---Detecci-n-y-Diagn-stico-de-Cancer-ce-Mama/blob/main/Resultados/Detecci%C3%B3n/YOLOv5/Train/confusion_matrix.png)
+![Alt text](Results/Detection/YOLOv5/Train/confusion_matrix.png)
 
 #### Metrics
-![Alt text](https://github.com/frani1999/TFG---Detecci-n-y-Diagn-stico-de-Cancer-ce-Mama/blob/main/Resultados/Detecci%C3%B3n/YOLOv5/Train/results.png)
+![Alt text](Results/Detection/YOLOv5/Train/results.png)
 
 #### Some sample results
-![Alt text](https://github.com/frani1999/TFG---Detecci-n-y-Diagn-stico-de-Cancer-ce-Mama/blob/main/Resultados/Detecci%C3%B3n/YOLOv5/Test/test1.jpg)
-![Alt text](https://github.com/frani1999/TFG---Detecci-n-y-Diagn-stico-de-Cancer-ce-Mama/blob/main/Resultados/Detecci%C3%B3n/YOLOv5/Test/test11.jpg)
-![Alt text](https://github.com/frani1999/TFG---Detecci-n-y-Diagn-stico-de-Cancer-ce-Mama/blob/main/Resultados/Detecci%C3%B3n/YOLOv5/Test/test19.jpg)
-![Alt text](https://github.com/frani1999/TFG---Detecci-n-y-Diagn-stico-de-Cancer-ce-Mama/blob/main/Resultados/Detecci%C3%B3n/YOLOv5/Test/test22.jpg)
-![Alt text](https://github.com/frani1999/TFG---Detecci-n-y-Diagn-stico-de-Cancer-ce-Mama/blob/main/Resultados/Detecci%C3%B3n/YOLOv5/Test/test33.jpg)
-![Alt text](https://github.com/frani1999/TFG---Detecci-n-y-Diagn-stico-de-Cancer-ce-Mama/blob/main/Resultados/Detecci%C3%B3n/YOLOv5/Test/test5.jpg)
+![Alt text](Results/Detection/YOLOv5/Test/test1.jpg)
+![Alt text](Results/Detection/YOLOv5/Test/test11.jpg)
+![Alt text](Results/Detection/YOLOv5/Test/test19.jpg)
+![Alt text](Results/Detection/YOLOv5/Test/test22.jpg)
+![Alt text](Results/Detection/YOLOv5/Test/test33.jpg)
+![Alt text](Results/Detection/YOLOv5/Test/test5.jpg)
 
 ## Diagnosis Results
 
 ### Calcifications - CNN designed
-![Alt text](https://github.com/frani1999/TFG---Detecci-n-y-Diagn-stico-de-Cancer-ce-Mama/blob/main/Resultados/Diagn%C3%B3stico/My%20CNN%20and%20VGG16/Calcificaciones/Calc%20Diagnosis%20My%20CNN.png)
+![Alt text](Results/Diagnosis/My_CNN_and_VGG16/Calcifications/Calc_Diagnosis_My_CNN.png)
 
 *Accuracy* result in test: 0.6
 
 ### Calcifications - VGG16 net
-![Alt text](https://github.com/frani1999/TFG---Detecci-n-y-Diagn-stico-de-Cancer-ce-Mama/blob/main/Resultados/Diagn%C3%B3stico/My%20CNN%20and%20VGG16/Calcificaciones/Calc%20Diagnosis%20VGG16.png)
+![Alt text](Results/Diagnosis/My_CNN_and_VGG16/Calcifications/Calc_Diagnosis_VGG16.png)
 
 *Accuracy* result in test: 0.57
 
 ### Masses - CNN designed
-![Alt text](https://github.com/frani1999/TFG---Detecci-n-y-Diagn-stico-de-Cancer-ce-Mama/blob/main/Resultados/Diagn%C3%B3stico/My%20CNN%20and%20VGG16/Masas/Diagnosis_My_CNN_masses.png)
+![Alt text](Results/Diagnosis/My_CNN_and_VGG16/Masses/Diagnosis_My_CNN_masses.png)
 
 *Accuracy* result in test: 0.54
 
 ### Masses VGG16 net
-![Alt text](https://github.com/frani1999/TFG---Detecci-n-y-Diagn-stico-de-Cancer-ce-Mama/blob/main/Resultados/Diagn%C3%B3stico/My%20CNN%20and%20VGG16/Masas/Diagnosis_VGG16_masses.png)
+![Alt text](Results/Diagnosis/My_CNN_and_VGG16/Masses/Diagnosis_VGG16_masses.png)
 
 *Accuracy* result in test: 0.62
 
-## Diagnosis results using Machine Learning Techniques
+## Diagnosis results using Machine_Learning_Techniques
 
 Sensitivity Formula:
-![Alt text](https://github.com/frani1999/TFG---Detecci-n-y-Diagn-stico-de-Cancer-ce-Mama/blob/main/Resources/CodeCogsEqn%20(1).png)
+![Alt text](Resources/CodeCogsEqn%20(1).png)
 
 Formula Specificity:
-![Alt text](https://github.com/frani1999/TFG---Detecci-n-y-Diagn-stico-de-Cancer-ce-Mama/blob/main/Resources/CodeCogsEqn%20(2).png)
+![Alt text](Resources/CodeCogsEqn%20(2).png)
 
 Sensitivity:
 | Technique used | feature extraction(%) | feature extraction bounded(%) |
