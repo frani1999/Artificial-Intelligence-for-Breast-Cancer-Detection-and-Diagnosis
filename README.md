@@ -1,142 +1,191 @@
-# Artificial Intelligence for Breast Cancer Detection and Diagnosis
+# 1. Artificial Intelligence for Breast Cancer Detection and Diagnosis
 
-This final thesis aims to study different techniques for detecting and diagnosing breast cancer using Artificial Intelligence algorithms based on **Machine Learning** and **Deep Learning**. Labeled mammography images are used as the data source, processed in various ways depending on the technique applied.
+This thesis explores different techniques for detecting and diagnosing breast cancer using artificial intelligence algorithms based on **machine learning** and **deep learning**. Labelled mammography images serve as the data source and are processed differently depending on the technique applied.
 
-After studying these techniques, the results are compared in order to subsequently choose the best combination of techniques to integrate into a CADx or CADe system.
+The results are compared to identify the best combination of techniques to integrate into a CADx or CADe system.
 
-# Repository Content
+# 2. Repository Contents
 
-This repository contains four folders: 
-* **Data** → contains several files in both csv and xls format, used to assign labels to images or to extract a certain subset of images. The images in the dataset can be downloaded here: https://www.kaggle.com/datasets/awsaf49/cbis-ddsm-breast-cancer-image-dataset
-* **Código** → The Python code developed for each test performed is collected. Within this, we find folders:
-  * **Detección** → contains the codes associated with the detection part of the project.
-  * **Diagnóstico** → contains the codes associated with the diagnostic part of the project.
-  * **Otros** → contains other codes that are relevant to the project. Inside that folder, there is a folder called **MIAS**. This folder contains the codes that were used at the beginning of the project to familiarise ourselves with Python functions, as well as obsolete codes that were used in techniques that were discarded for the project. All of these codes were tested with the **MIAS** database, which is smaller than the **CBIS-DDSM** database.
-* **Resultados** → contains the results obtained in each experiment, both in the detection and diagnosis parts. They are very varied. You will be able to see different files, from graphs to .txt files where you can view the execution logs for each test. Specifically for the diagnosis process, there is a results folder that YOLOv5 returns once the training phase is complete, and another after running the testing phase.
-* **Resources** → Contains the images for project documentation.
+This repository contains four folders:
 
-# Used Techniques
+* **Data** → contains CSV and XLSX files used to assign labels to images or extract subsets of images. The dataset images can be downloaded from [Kaggle - CBIS-DDSM: Breast Cancer Image Dataset](https://www.kaggle.com/datasets/awsaf49/cbis-ddsm-breast-cancer-image-dataset).
+* **Code** → contains the Python code developed for each experiment, organised into the following folders:
+  * **Detection** → contains the code for the detection part of the project.
+  * **Diagnosis** → contains the code for the diagnosis part of the project.
+  * **Others** → contains additional scripts relevant to the project. The **MIAS** subfolder contains code used at the beginning of the project to explore Python functions with the **MIAS** database, which is smaller than the **CBIS-DDSM** database. The **Obsolete** subfolder contains code for techniques that were later discarded.
+* **Results** → contains the results of the detection and diagnosis experiments, including graphs and execution logs in TXT files. The YOLOv5 detection results include separate folders for training and testing outputs.
+* **Resources** → contains images used in the project documentation.
 
-The following **Deep Learning** techniques have been used:
+# 3. Techniques Used
 
-- Convolutional Neural Network design with the following architecture:
+The following **deep learning** techniques were used:
 
-![Alt text](https://github.com/frani1999/TFG---Detecci-n-y-Diagn-stico-de-Cancer-ce-Mama/blob/main/Resources/Mi%20CNN.png)
+- A custom convolutional neural network (CNN) with the following architecture:
 
-- VGG16 net, which has the following architecture:
+<p align="center">
+  <img src="Resources/My_CNN.png" alt="My CNN architecture" width="650">
+</p>
 
-![Alt text](https://github.com/frani1999/TFG---Detecci-n-y-Diagn-stico-de-Cancer-ce-Mama/blob/main/Resources/Red%20VGG16.png)
+- The VGG16 network, with the following architecture:
 
-- **YOLOv5** Retraining: The object detection algorithm has been successfully adapted to detect tumours in mammography images. For that purpose, a subset of mammograms extracted from CBIS-DDSM were manually labelled in **YOLOv5** format for subsequent training.
-  - Link to **YOLOv5** repository: https://github.com/ultralytics/yolov5
-  - **YOLOv5** Retraining tutorial: https://colab.research.google.com/github/roboflow-ai/yolov5-custom-training-tutorial/blob/main/yolov5-custom-training.ipynb#scrollTo=X7yAi9hd-T4B
+<p align="center">
+  <img src="Resources/Net_VGG16.png" alt="VGG16 network architecture" width="650">
+</p>
 
-The following **Machine Learning** techniques have been used:
-- *K-Nearest Neighbors (KNN)*
+- **YOLOv5 retraining**: The object detection algorithm was adapted to detect tumours in mammography images. A subset of mammograms from CBIS-DDSM was manually labelled in **YOLOv5** format for training.
+  - [YOLOv5 repository](https://github.com/ultralytics/yolov5)
+  - [YOLOv5 retraining tutorial](https://colab.research.google.com/github/roboflow-ai/yolov5-custom-training-tutorial/blob/main/yolov5-custom-training.ipynb#scrollTo=X7yAi9hd-T4B)
+
+The following **machine learning** techniques were used:
+
+- *K-Nearest Neighbours (KNN)*
 - *Logistic Regression*
 - *Support Vector Machine (SVM)*
 - *Random Forest*
 - *Decision Tree Classifier*
-- *Naive Bayes Classifier (GaussianNB)*
+- *Gaussian Naive Bayes Classifier (GaussianNB)*
 
-# Results
+# 4. Results
 
-## Detection Results
+## 4.1. Detection Results
 
-### CNN designed
-![Alt text](https://github.com/frani1999/TFG---Detecci-n-y-Diagn-stico-de-Cancer-ce-Mama/blob/main/Resultados/Detecci%C3%B3n/My%20CNN%20and%20VGG16/Detection%20Result%20-%20My%20CNN.png)
+### 4.1.1. Custom CNN
 
-*Accuracy* result in test: 0.84
+<p align="center">
+  <img src="Results/Detection/My_CNN_and_VGG16/Detection%20Result%20-%20My%20CNN.png" alt="Detection Result - My CNN" width="600">
+</p>
 
-### VGG16 net
-![Alt text](https://github.com/frani1999/TFG---Detecci-n-y-Diagn-stico-de-Cancer-ce-Mama/blob/main/Resultados/Detecci%C3%B3n/My%20CNN%20and%20VGG16/Detection%20Result%20-%20VGG16.png)
+<h3 align="center"><strong>Test accuracy: 0.84</strong></h3>
 
-*Accuracy* result in test: 0.87
+### 4.1.2. VGG16 Network
 
-### YOLOv5
+<p align="center">
+  <img src="Results/Detection/My_CNN_and_VGG16/Detection%20Result%20-%20VGG16.png" alt="Detection Result - VGG16" width="600">
+</p>
 
-#### Confusion Matrix
-![Alt text](https://github.com/frani1999/TFG---Detecci-n-y-Diagn-stico-de-Cancer-ce-Mama/blob/main/Resultados/Detecci%C3%B3n/YOLOv5/Train/confusion_matrix.png)
+<h3 align="center"><strong>Test accuracy: 0.87</strong></h3>
 
-#### Metrics
-![Alt text](https://github.com/frani1999/TFG---Detecci-n-y-Diagn-stico-de-Cancer-ce-Mama/blob/main/Resultados/Detecci%C3%B3n/YOLOv5/Train/results.png)
+### 4.1.3. YOLOv5
 
-#### Some sample results
-![Alt text](https://github.com/frani1999/TFG---Detecci-n-y-Diagn-stico-de-Cancer-ce-Mama/blob/main/Resultados/Detecci%C3%B3n/YOLOv5/Test/test1.jpg)
-![Alt text](https://github.com/frani1999/TFG---Detecci-n-y-Diagn-stico-de-Cancer-ce-Mama/blob/main/Resultados/Detecci%C3%B3n/YOLOv5/Test/test11.jpg)
-![Alt text](https://github.com/frani1999/TFG---Detecci-n-y-Diagn-stico-de-Cancer-ce-Mama/blob/main/Resultados/Detecci%C3%B3n/YOLOv5/Test/test19.jpg)
-![Alt text](https://github.com/frani1999/TFG---Detecci-n-y-Diagn-stico-de-Cancer-ce-Mama/blob/main/Resultados/Detecci%C3%B3n/YOLOv5/Test/test22.jpg)
-![Alt text](https://github.com/frani1999/TFG---Detecci-n-y-Diagn-stico-de-Cancer-ce-Mama/blob/main/Resultados/Detecci%C3%B3n/YOLOv5/Test/test33.jpg)
-![Alt text](https://github.com/frani1999/TFG---Detecci-n-y-Diagn-stico-de-Cancer-ce-Mama/blob/main/Resultados/Detecci%C3%B3n/YOLOv5/Test/test5.jpg)
+#### 4.1.3.1. Confusion Matrix
 
-## Diagnosis Results
+<p align="center">
+  <img src="Results/Detection/YOLOv5/Train/confusion_matrix.png" alt="YOLOv5 confusion matrix" width="600">
+</p>
 
-### Calcifications - CNN designed
-![Alt text](https://github.com/frani1999/TFG---Detecci-n-y-Diagn-stico-de-Cancer-ce-Mama/blob/main/Resultados/Diagn%C3%B3stico/My%20CNN%20and%20VGG16/Calcificaciones/Calc%20Diagnosis%20My%20CNN.png)
+#### 4.1.3.2. Metrics
 
-*Accuracy* result in test: 0.6
+<p align="center">
+  <img src="Results/Detection/YOLOv5/Train/results.png" alt="YOLOv5 training metrics" width="800">
+</p>
 
-### Calcifications - VGG16 net
-![Alt text](https://github.com/frani1999/TFG---Detecci-n-y-Diagn-stico-de-Cancer-ce-Mama/blob/main/Resultados/Diagn%C3%B3stico/My%20CNN%20and%20VGG16/Calcificaciones/Calc%20Diagnosis%20VGG16.png)
+#### 4.1.3.3. Sample Results
 
-*Accuracy* result in test: 0.57
+<table align="center">
+  <tr>
+    <td align="center"><img src="Results/Detection/YOLOv5/Test/test1.jpg" alt="YOLOv5 detection sample 1" width="350"></td>
+    <td align="center"><img src="Results/Detection/YOLOv5/Test/test11.jpg" alt="YOLOv5 detection sample 11" width="350"></td>
+  </tr>
+  <tr>
+    <td align="center"><img src="Results/Detection/YOLOv5/Test/test19.jpg" alt="YOLOv5 detection sample 19" width="350"></td>
+    <td align="center"><img src="Results/Detection/YOLOv5/Test/test22.jpg" alt="YOLOv5 detection sample 22" width="350"></td>
+  </tr>
+  <tr>
+    <td align="center"><img src="Results/Detection/YOLOv5/Test/test33.jpg" alt="YOLOv5 detection sample 33" width="350"></td>
+    <td align="center"><img src="Results/Detection/YOLOv5/Test/test5.jpg" alt="YOLOv5 detection sample 5" width="350"></td>
+  </tr>
+</table>
 
-### Masses - CNN designed
-![Alt text](https://github.com/frani1999/TFG---Detecci-n-y-Diagn-stico-de-Cancer-ce-Mama/blob/main/Resultados/Diagn%C3%B3stico/My%20CNN%20and%20VGG16/Masas/Diagnosis_My_CNN_masses.png)
+## 4.2. Diagnosis Results
 
-*Accuracy* result in test: 0.54
+### 4.2.1. Calcifications - Custom CNN
 
-### Masses VGG16 net
-![Alt text](https://github.com/frani1999/TFG---Detecci-n-y-Diagn-stico-de-Cancer-ce-Mama/blob/main/Resultados/Diagn%C3%B3stico/My%20CNN%20and%20VGG16/Masas/Diagnosis_VGG16_masses.png)
+<p align="center">
+  <img src="Results/Diagnosis/My_CNN_and_VGG16/Calcifications/Calc_Diagnosis_My_CNN.png" alt="Calcification diagnosis results for the custom CNN" width="600">
+</p>
 
-*Accuracy* result in test: 0.62
+<h3 align="center"><strong>Test accuracy: 0.6</strong></h3>
 
-## Diagnosis results using Machine Learning Techniques
+### 4.2.2. Calcifications - VGG16 Network
 
-Sensitivity Formula:
-![Alt text](https://github.com/frani1999/TFG---Detecci-n-y-Diagn-stico-de-Cancer-ce-Mama/blob/main/Resources/CodeCogsEqn%20(1).png)
+<p align="center">
+  <img src="Results/Diagnosis/My_CNN_and_VGG16/Calcifications/Calc_Diagnosis_VGG16.png" alt="Calcification diagnosis results for VGG16" width="600">
+</p>
 
-Formula Specificity:
-![Alt text](https://github.com/frani1999/TFG---Detecci-n-y-Diagn-stico-de-Cancer-ce-Mama/blob/main/Resources/CodeCogsEqn%20(2).png)
+<h3 align="center"><strong>Test accuracy: 0.57</strong></h3>
 
-Sensitivity:
-| Technique used | feature extraction(%) | feature extraction bounded(%) |
-| ------------- | ------------- | ------------- |
-| KNN | 36.57 | 37.09 |
-| Logistic Regression | 54.24 | 53.56 |
-| svc | 55.88 | 55.88 |
-| Random Forest  | 44.80 | 45.36 |
-| Decision Tree Classifier | 45.60 | 39.66 |
-| GaussianNB | 57.68 | 57.39 |
+### 4.2.3. Masses - Custom CNN
 
-Specificity:
-| Technique used | feature extraction(%) | feature extraction bounded(%) |
-| ------------- | ------------- | ------------- |
-| KNN | 26.04 | 25.86 |
-| Logistic Regression | 33.96 | 26.83 |
-| svc | 20.21 | 20.21 |
-| Random Forest  | 28.29 | 30.13 |
-| Decision Tree Classifier | 30.86 | 26.74 |
-| GaussianNB | 18.44 | 18.33 |
+<p align="center">
+  <img src="Results/Diagnosis/My_CNN_and_VGG16/Masses/Diagnosis_My_CNN_masses.png" alt="Mass diagnosis results for the custom CNN" width="600">
+</p>
 
-In both cases a binary classification is performed, so the opposite value can be taken:
+<h3 align="center"><strong>Test accuracy: 0.54</strong></h3>
 
-Sensitivity:
-| Technique used | feature extraction(%) | feature extraction bounded(%) |
-| ------------- | ------------- | ------------- |
-| KNN | 63.43 | 62.91 |
-| Logistic Regression | 45.76 | 46.44 |
-| svc | 44.12 | 44.12 |
-| Random Forest  | 55.20 |  54.64|
-| Decision Tree Classifier | 54.40 | 60.34 |
-| GaussianNB | 42.32 | 42.61 |
+### 4.2.4. Masses - VGG16 Network
 
-Specificity:
-| Technique used | feature extraction(%) | feature extraction bounded(%) |
-| ------------- | ------------- | ------------- |
-| KNN | 73.96 | 74.14 |
-| Logistic Regression | 66.04 | 73.17 |
-| svc | 79.79 | 79.79 |
-| Random Forest  | 71.71 | 69.87 |
-| Decision Tree Classifier | 69.14 | 73.26 |
-| GaussianNB | 81.56 | 81.67 |
+<p align="center">
+  <img src="Results/Diagnosis/My_CNN_and_VGG16/Masses/Diagnosis_VGG16_masses.png" alt="Mass diagnosis results for VGG16" width="600">
+</p>
+
+<h3 align="center"><strong>Test accuracy: 0.62</strong></h3>
+
+## 4.3. Diagnosis Results Using Machine Learning Techniques
+
+**Sensitivity formula:**
+
+$$
+\text{Sensitivity} = \frac{\text{Correctly classified benign cases}}{\text{Total benign cases}} \times 100\%
+$$
+
+**Specificity formula:**
+
+$$
+\text{Specificity} = \frac{\text{Correctly classified malignant cases}}{\text{Total malignant cases}} \times 100\%
+$$
+
+**Sensitivity:**
+
+| Technique                | Feature extraction (%) | Bounded feature extraction (%) |
+| ------------------------ | ---------------------- | ------------------------------ |
+| KNN                      | 36.57                  | 37.09                          |
+| Logistic Regression      | 54.24                  | 53.56                          |
+| SVC                      | 55.88                  | 55.88                          |
+| Random Forest            | 44.80                  | 45.36                          |
+| Decision Tree Classifier | 45.60                  | 39.66                          |
+| GaussianNB               | 57.68                  | 57.39                          |
+
+**Specificity:**
+
+| Technique                | Feature extraction (%) | Bounded feature extraction (%) |
+| ------------------------ | ---------------------- | ------------------------------ |
+| KNN                      | 26.04                  | 25.86                          |
+| Logistic Regression      | 33.96                  | 26.83                          |
+| SVC                      | 20.21                  | 20.21                          |
+| Random Forest            | 28.29                  | 30.13                          |
+| Decision Tree Classifier | 30.86                  | 26.74                          |
+| GaussianNB               | 18.44                  | 18.33                          |
+
+Both tasks use binary classification. The following tables show the complementary percentages (100% minus each value above):
+
+**Sensitivity:**
+
+| Technique                | Feature extraction (%) | Bounded feature extraction (%) |
+| ------------------------ | ---------------------- | ------------------------------ |
+| KNN                      | 63.43                  | 62.91                          |
+| Logistic Regression      | 45.76                  | 46.44                          |
+| SVC                      | 44.12                  | 44.12                          |
+| Random Forest            | 55.20                  | 54.64                          |
+| Decision Tree Classifier | 54.40                  | 60.34                          |
+| GaussianNB               | 42.32                  | 42.61                          |
+
+**Specificity:**
+
+| Technique                | Feature extraction (%) | Bounded feature extraction (%) |
+| ------------------------ | ---------------------- | ------------------------------ |
+| KNN                      | 73.96                  | 74.14                          |
+| Logistic Regression      | 66.04                  | 73.17                          |
+| SVC                      | 79.79                  | 79.79                          |
+| Random Forest            | 71.71                  | 69.87                          |
+| Decision Tree Classifier | 69.14                  | 73.26                          |
+| GaussianNB               | 81.56                  | 81.67                          |
